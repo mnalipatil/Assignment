@@ -34,7 +34,7 @@ public class LandingPageObjects {
 	 private By subscriptiontextEle = By.xpath("//h2[text()='Subscription']");//h2[text()='Subscription']
 	 private By SubEmailAddress = By.xpath("//input[@id='susbscribe_email']");
 	 private By clickArrowBtn = By.xpath("//button[@id='subscribe']");
-	 private By SuccessMsgVisible = By.xpath("//div[contains(text(),'You have been successfully subscribed!')]"); //div[text()='You have been successfully subscribed!']
+	 private By SuccessMsgVisible = By.xpath("//div[text()='You have been successfully subscribed!']"); //div[text()='You have been successfully subscribed!']
 	 private By clickToLoginBtn = By.xpath("//button[@data-qa='login-button']");
 	 private By LogOutText = By.xpath("//a[text()=' Logout']");
 	 private By DeleteAccountText = By.xpath("//a[text()=' Delete Account']");

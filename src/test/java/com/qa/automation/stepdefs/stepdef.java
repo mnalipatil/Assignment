@@ -142,9 +142,9 @@ public class stepdef{
 		landingPageObjects.clickVideoTitorialsBtn();
 	}
 
-	@Then("url for the video tutorial page contains {string} as keyword")
-	public void url_for_the_video_tutorial_page_contains_as_keyword(String url) {
-		headerSecPageObjects.verifyVideoTutorialPageUrl(url);
+	@Then("url for the video tutorial page contains the {string} as keyword")
+	public void url_for_the_video_tutorial_page_contains_as_keyword(String VideoTutorialPageUrlKeyword) {
+		headerSecPageObjects.verifyVideoTutorialPageUrl(VideoTutorialPageUrlKeyword);
 	}
 
 	@Then("user click to Contact us button")

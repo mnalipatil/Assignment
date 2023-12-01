@@ -61,10 +61,10 @@ public class HeaderSecPageObjects {
 			Assert.assertEquals(true,driver.getTitle().contains(APITestingPageTitle));
 	 }
 	 
-	 public void verifyVideoTutorialPageUrl(String url)
+	 public void verifyVideoTutorialPageUrl(String VideoTutorialPageUrlKeyword)
 	 {
-	    	wait.until(ExpectedConditions.urlContains(url));
-			Assert.assertEquals(true,driver.getCurrentUrl().contains(url));
+	    	wait.until(ExpectedConditions.urlContains(VideoTutorialPageUrlKeyword));
+			Assert.assertEquals(true,driver.getCurrentUrl().contains(VideoTutorialPageUrlKeyword));
 	 }
 	 
 	 public void verifyContactUsPageTitle(String ContactUsPagrTitle)
