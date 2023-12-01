@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.automation.PageObjectModel.HeaderSecPageObjects;
 import com.qa.automation.PageObjectModel.LandingPageObjects;
+import com.qa.automation.PageObjectModel.SignupLoginPageObject;
 import com.qa.automation.com.WebDriverFactory;
 
 import org.apache.logging.log4j.Logger;
@@ -40,6 +41,7 @@ public class stepdef{
 	Scenario scn;
 	LandingPageObjects landingPageObjects;
 	HeaderSecPageObjects headerSecPageObjects;
+	SignupLoginPageObject signupLoginPageObject;
 	
 	@Before
 	public void setup(Scenario scn) throws Exception
@@ -50,6 +52,8 @@ public class stepdef{
         wait = new WebDriverWait(driver,implictlyWaitTimeoutsec);
         landingPageObjects = new LandingPageObjects(driver);
         headerSecPageObjects = new HeaderSecPageObjects(driver);
+        signupLoginPageObject = new SignupLoginPageObject(driver);	
+        
 	}
 	
 	@After(order=1)
@@ -138,8 +142,8 @@ public class stepdef{
 		landingPageObjects.clickVideoTitorialsBtn();
 	}
 
-	@Then("user verify to the video tutorials page with url as {string}")
-	public void user_verify_to_the_video_tutorials_page_with_url_as(String url) {
+	@Then("url for the video tutorial page contains {string} as keyword")
+	public void url_for_the_video_tutorial_page_contains_as_keyword(String url) {
 		headerSecPageObjects.verifyVideoTutorialPageUrl(url);
 	}
 
@@ -176,7 +180,89 @@ public class stepdef{
 	@Then("displayed success message {string} is visible")
 	public void displayed_success_message_is_visible(String SuccessMsg) {
 		landingPageObjects.VerifySuccessMsg(SuccessMsg);
-
 	}
+	
+	@Given("click to signup\\/login button")
+	public void click_to_signup_login_button() {
+		landingPageObjects.VerifyLoginBtn();
+	}
+	
+	@When("user redirected to login page with title as {string}")
+	public void user_redirected_to_login_page_with_title_as(String LoginPageTitle) {
+		signupLoginPageObject.verifyLoginPageTitle(LoginPageTitle);
+	}
+
+	@Then("user able to see the text {string}")
+	public void user_able_to_see_the_text(String LoginToYourAccount) {
+		signupLoginPageObject.verifyLoginToYourAcText(LoginToYourAccount);
+	}
+	
+	@When("user enters email id as {string}")
+	public void user_enters_email_id_as(String emailIdforLogin) {
+		signupLoginPageObject.verifyEmailIdForLogin(emailIdforLogin);
+	}
+	
+	@When("user enters password as {string}")
+	public void user_enters_password_as(String PasswordForLogin) {
+		signupLoginPageObject.verifyPassForLogin(PasswordForLogin);
+	}
+	
+	@Then("user click to Login button")
+	public void user_click_to_login_button() {
+		signupLoginPageObject.verifyClickToLoginBtn();
+	}
+	
+	@Then("EmailId and Password is not validate the user able to see the error message {string} is visisble")
+	public void email_id_and_password_is_not_validate_the_user_able_to_see_the_error_message_is_visisble(String ErrorMsgVisible) {
+		signupLoginPageObject.verifyErrorMsgVisible(ErrorMsgVisible);
+	}
+ 
+	/////////////////////////////////////////////////////////////////
+	
+	@Given("Yser click to signup\\/login button")
+	public void yser_click_to_signup_login_button() {
+		landingPageObjects.verifyLoginBotton();
+	} 
+	
+	@When("User redirected to login page with title as {string}")
+	public void User_redirected_to_login_page_with_title_as(String LoginPageTitle) {
+		signupLoginPageObject.VerifyLoginPageTitle(LoginPageTitle);
+	}
+
+	@Then("User able to see the text {string}")
+	public void User_able_to_see_the_text(String LoginToYourAccount) {
+		signupLoginPageObject.verifyLoginToYourAccountText(LoginToYourAccount);
+	}
+	
+	@When("User enters email id as {string}")
+	public void User_enters_email_id_as(String emailIdforLogin) {
+		signupLoginPageObject.verifyEmail(emailIdforLogin);
+	}
+	
+	@When("User enters password as {string}")
+	public void User_enters_password_as(String PasswordForLogin) {
+		signupLoginPageObject.verifyPassword(PasswordForLogin);
+	}
+	
+	@Then("User click to Login button")
+	public void User_click_to_login_button() {
+		landingPageObjects.verifyclickLoginBtn();
+	}
+	
+	@Then("after login user able to see {string} button at top header of application")
+	public void after_login_user_able_to_see_button_at_top_header_of_application(String Logout) {
+		landingPageObjects.verifyLogOutBtn(Logout);
+	}
+
+	@Then("user is able to see {string} button at top header section of application")
+	public void user_is_able_to_see_button_at_top_header_section_of_application(String DeleteAccount) {
+		landingPageObjects.verifyDeleteAccountText(DeleteAccount);
+	}
+	@Then("with {string} as user name just after Logged in as button")
+	public void with_as_user_name_just_after_logged_in_as_button(String LoggedName) {
+		landingPageObjects.verifyLoggedName(LoggedName);
+	}
+
+
 
 }

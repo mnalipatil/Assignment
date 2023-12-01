@@ -31,10 +31,16 @@ public class LandingPageObjects {
 	 private By ClickAPITestingBtn = By.xpath("//a[text()=' API Testing']");
 	 private By ClickVideoTutorialBtn = By.xpath("//a[text()=' Video Tutorials']");
 	 private By ClickContactUsBTn = By.xpath("//a[text()=' Contact us']");
-	 private By subscriptiontextEle = By.xpath("//h2[text()='Subscription']");
+	 private By subscriptiontextEle = By.xpath("//h2[text()='Subscription']");//h2[text()='Subscription']
 	 private By SubEmailAddress = By.xpath("//input[@id='susbscribe_email']");
 	 private By clickArrowBtn = By.xpath("//button[@id='subscribe']");
-	 private By SuccessMsgVisible = By.xpath("//div[text()='You have been successfully subscribed!']"); ////div[@class='alert-success alert']
+	 private By SuccessMsgVisible = By.xpath("//div[contains(text(),'You have been successfully subscribed!')]"); //div[text()='You have been successfully subscribed!']
+	 private By clickToLoginBtn = By.xpath("//button[@data-qa='login-button']");
+	 private By LogOutText = By.xpath("//a[text()=' Logout']");
+	 private By DeleteAccountText = By.xpath("//a[text()=' Delete Account']");
+	 private By VrfLoggedName = By.xpath("//a[text()= ' Logged in as ']/b");
+	 private By ClkLoginBtn = By.xpath("//a[text()=' Signup / Login']");
+	 private By ClickLoginBtn = By.xpath("//a[text()=' Signup / Login']");
 	 //Page Methods
 	 public void validateHomePageTitle(String HomePageTitle)
 	 {
@@ -111,5 +117,41 @@ public class LandingPageObjects {
 	 {
 			WebElement SuccessMsgVisibleEle = driver.findElement(SuccessMsgVisible);
 			Assert.assertEquals(SuccessMsg,SuccessMsgVisibleEle.getText());
+	 }
+	 
+	 public void verifyclickLoginBtn()
+	 {
+			WebElement clickToLoginBtnEle = driver.findElement(clickToLoginBtn);
+			clickToLoginBtnEle.click();	
+	 }
+	 
+	 public void verifyLogOutBtn(String Logout)
+	 {
+			WebElement LogoutEle = driver.findElement(LogOutText);
+			Assert.assertEquals(Logout,LogoutEle.getText().trim());
+	 }
+	 
+	 public void verifyDeleteAccountText(String DeleteAccount)
+	 {
+			WebElement DeleteAccountEle = driver.findElement(DeleteAccountText);
+			Assert.assertEquals(DeleteAccount,DeleteAccountEle.getText().trim());
+	 }
+	 
+	 public void verifyLoggedName(String LoggedName)
+	 {
+			WebElement LoggedNameEle = driver.findElement(VrfLoggedName);//a[text()= ' Logged in as ']/b
+			Assert.assertEquals(LoggedName,LoggedNameEle.getText().trim());
+	 }
+	  
+	 public void VerifyLoginBtn()
+	 {
+			WebElement clickLoginBtn = driver.findElement(ClkLoginBtn);
+			clickLoginBtn.click();
+	 }
+	 
+	 public void verifyLoginBotton()
+	 {
+			WebElement clickLoginBtnEle = driver.findElement(ClickLoginBtn);
+			clickLoginBtnEle.click();
 	 }
 }

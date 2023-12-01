@@ -21,10 +21,10 @@ public class WebDriverFactory {
     public static WebDriver getWebDriverForBrowser(String browser) throws Exception {
         switch(browser.toLowerCase()){
             case "chrome":
-            	System.setProperty("webdriver.chrome.driver","C:\\Users\\Manali Patil\\eclipse-workspace\\chromedriver-win64 (3)\\chromedriver-win64\\chromedriver.exe");
+            	System.setProperty("webdriver.chrome.driver","C:\\Users\\Manali Patil\\eclipse-workspace\\chromedriver-win64 (2)\\chromedriver-win64\\chromedriver.exe");
         		logger.info("Setting up for browser path is completed");
         		ChromeOptions opt = new ChromeOptions();
-        		opt.setBinary("C:\\Users\\Manali Patil\\eclipse-workspace\\chrome-win64 (3)\\chrome-win64\\chrome.exe");
+        		opt.setBinary("C:\\Users\\Manali Patil\\eclipse-workspace\\chrome-win64 (2)\\chrome-win64\\chrome.exe");
         		logger.info("Setting up chrome binary completed");
         		driver = new ChromeDriver(opt);
                 logger.info("Chrome Browser invoked"); 
